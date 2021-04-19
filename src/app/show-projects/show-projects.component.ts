@@ -59,27 +59,27 @@ export class ShowProjectsComponent implements OnInit {
         let decided = false
         for(let index in project.projectLeaders){
           console.log(project.projectLeaders[index])
-          console
           if(<string>project.projectLeaders[index] == this.id){
             this.myProjects.push(project);
             decided = true
             break;
           }
         }
+
         if(!decided){
           console.log("member: ")
           for(let index in project.projectMembers){
             console.log(project.projectMembers[index]);
             if(<string>project.projectMembers[index] == this.id){
               this.myProjects.push(project);
-              decided = true
+              decided = true;
               break;
             }
           }
-          if(!decided)this.projects.push(project);
-        }
           
-        else this.projects.push(project);
+        }
+        
+        if(!decided)this.projects.push(project);
         
       });
       

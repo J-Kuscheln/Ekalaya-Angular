@@ -47,36 +47,22 @@ export class NewProjectComponent implements OnInit {
 
   create(){
     if(this.loggedIn && this.validateInput()){
-      this.getMemberName().then(name=>{
         let requestBody:string =`{"name":"`+ this.name.nativeElement.value +`",
         "status":"Waiting for Acceptance",
         "description":"`+ this.reformDesc(this.description.nativeElement.value) +`"
         }` 
-        console.log("user name: ", name)
 
         this.createProject(requestBody).then((resp)=>{
           if(resp=="CREATED"){
             console.log(resp);
-            this.getProjectId(this.name.nativeElement.value)
-            .then(projectId=>{
-              requestBody = `{"memberId":"`+ this.id +`",
-              "projectId":`+ projectId +`,
-              "toDo":"asLeader"
-              }`
-              
-              this.createRelation(requestBody)
-              .then(()=>{
-                console.log("redirect");
-                this.router.navigate(['/show-projects']);
-              });
-            });
+            console.log("redirect");
+            this.router.navigate(['/show-projects']);
           }else if(resp=="USED"){
             this.name.nativeElement.setAttribute("class", "form-control is-invalid")
           }else{
             this.connection.nativeElement.setAttribute("class", "form-control is-invalid")
           }
         });
-      });
     }
   }
 
@@ -97,18 +83,6 @@ export class NewProjectComponent implements OnInit {
     return desc.join("");
   }
 
-  getProjectId(name:string){
-    let url:string= this.baseUrl+"/projects/name/"+this.name.nativeElement.value;
-    return fetch(url).then(resp=>resp.json())
-    .then(data=>data.id)
-  }
-
-  getMemberName(){
-    let url:string = this.baseUrl+"/members/" + this.id;
-    return fetch(url).then(resp=>resp.json())
-    .then(data=>data.firstName)
-  }
-
   createProject(requestBody){
     let url:string = this.baseUrl+"/projects"
     return fetch(url,{
@@ -119,22 +93,6 @@ export class NewProjectComponent implements OnInit {
     })
     .then((feedback)=>feedback).then(data=>{
       if(data.status==201) return "CREATED";
-      if(data.status==226) return "USED";
-      return "CONNECTION";
-    })
-    .catch(()=>"CONNECTION")
-  }
-
-  createRelation(requestBody:string){
-    let url:string = this.baseUrl+"/relate"
-    return fetch(url,{
-      method:'post',
-      credentials:'include',
-      headers:{'Content-Type': 'application/json'},
-      body:requestBody
-    })
-    .then((feedback)=>feedback).then(data=>{
-      if(data.status==200) return "CREATED";
       if(data.status==226) return "USED";
       return "CONNECTION";
     })
