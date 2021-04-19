@@ -1,0 +1,73 @@
+<div class="container text-center mt-5" id="project-details-title" *ngIf="!project"><h2>load data...</h2></div>
+
+<div class="container mt-5" *ngIf="project">
+    
+    <div class="row">
+        
+        <div class="col-9" id="info">
+            <div class="container text-center" id="project-details-title" *ngIf="project"><h2>{{project.name}}</h2></div>
+            <!--description-->
+            <div class="row justify-content-left">
+                <div class="col-8 text-left">
+                    <span id="description-title">Description</span>
+                </div>
+                <div class="col-8" id="description-box" [innerHTML]="project.description"></div>
+            </div>
+
+            <!--tasks-->
+            <div class="row justify-content-left" *ngIf="isLoggedIn">
+                <span style="padding-left: 0px; padding-right: 0px;" *ngFor="let tasks of tasksContainer; let i = index">
+                    <div class="col-8 text-left mt-3" *ngIf="i==0 && tasks.length>0">
+                        <span id="your-task-title">Your Tasks</span>
+                    </div>
+                    <div class="col-8 text-left mt-3" *ngIf="i==1 && tasks.length>0">
+                        <span id="other-task-title">Other's Tasks</span>
+                    </div>
+                    <span style="padding-left: 0px; padding-right: 0px;" *ngFor="let task of tasks; let j = index">
+                        <div class="col-8 mb-1"  id="task-card">
+                            <div class="row">
+                                <div class="col-8" id="task-left-side">
+                                    <div id="task-name"><b>{{task.name}}</b></div>
+                                    <div id="task-description" style="color:rgb(71, 69, 69)" [innerHTML]="task.description"></div>
+                                </div>
+                                <div class="col-4" id="task-rigth-side">
+                                    <div id="due-date-title"><b>due date</b></div>
+                                    <div id="due-date" style="color:dimgray">{{task.dueDate}}</div>
+                                    <span *ngIf="i==0 && myPartners[j].length>0">
+                                        <div class="mt-2" id="partner-title"><b>Partner(s): </b></div>
+                                        <div *ngFor="let partner of myPartners[j]" id="partner-name" >{{partner.firstName + " " + partner.lastName}}</div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </span>
+            </div>
+        </div>
+        
+
+        <!--side bar-->
+        <div class="col-3" id="right-side-bar">
+            <div class="container" style="visibility: hidden;"><h2>H</h2></div>
+            <div class="row">
+                <div id="leader-title">Leader</div>
+                <span style="padding-left: 0px; padding-right: 0px;" *ngFor="let leader of LeaderOfProject">
+                    <div class="card mb-2" id="leader-card">
+                        <span id="member-card-name">{{leader.firstName + " " + leader.lastName}}</span>
+                        <span id="email" style="color:dimgray">{{leader.email}}</span>
+                    </div>
+                </span>
+
+                <div id="members-title">members</div>
+                <div id="no-member" *ngIf="project.projectMembers.length==0" style="color:dimgray"> this project has no member</div>
+                
+                <span style="padding-left: 0px; padding-right: 0px;" *ngFor="let member of membersOfProject">
+                    <div class="card mb-2" id="member-card">
+                        <span id="member-card-name">{{member.firstName + " " + member.lastName}}</span>
+                        <span id="email" style="color:dimgray">{{member.email}}</span>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

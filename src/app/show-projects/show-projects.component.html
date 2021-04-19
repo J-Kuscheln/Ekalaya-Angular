@@ -1,0 +1,127 @@
+<div class="container" *ngFor="let projectsHere of projectsContainer; let i = index">
+    <div class="row" *ngIf="loggedIn">
+        <div class="col-3"></div>
+        <div class="col mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col text-center">
+                        <h3 *ngIf="i == 0 && projectsHere.length>1">Your Projects</h3>
+                        <h3 *ngIf="i == 0 && projectsHere.length<=1">Your Project</h3>
+                        <h3 *ngIf="i == 1 && projectsHere.length>1">Other's Projects</h3>
+                        <h3 *ngIf="i == 1 && projectsHere.length==1">Other's Project</h3>
+                    </div>
+                    <div class="col-3 justify-content-center text-center">
+                        <span *ngIf="i == 0">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  More
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" routerLink="/new-project">Create New Project</a>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="row" *ngIf="!loggedIn && projectsHere.length==0 && i==1">
+            <div class="col-3"></div>
+            <div class="col text-center" style="color: gray;">No Project Here</div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row" *ngIf="projectsHere.length==0 && loggedIn && i==0">
+            <div class="col-3"></div>
+            <div class="col text-center" style="color: gray;">No Project Here</div>
+            <div class="col-3"></div>
+        </div>
+        <div class="card" *ngFor="let project of projectsHere" style="width: 18rem; margin:2%;">
+            <div class="card-body d-flex flex-column">
+                <!--profile information field-->
+                <div class="row text-center"><h3><a class="text-dark" id="project-name-link" routerLink="/project-details/{{project.id}}" >{{project.name}}</a></h3></div>
+                <hr>
+                <div class="row" >
+                    <p><b>Status:<br>{{project.status}}</b></p>
+                </div>
+                <div class="row">
+                    <p><b>Description:</b><br>
+                        <span [innerHTML] = "project.description"></span>
+                    </p>
+                </div>
+                <!--leaders & member field-->
+                <div class="row mt-auto" *ngIf="project.projectLeaders.length"> 
+                    <hr>
+                    <p>
+                        <span *ngIf="project.projectLeaders.length < 2 && project.projectLeaders.length > 0"><b>Leader:</b><br></span>
+                        <span *ngIf="project.projectLeaders.length >= 2"><b>Leaders:</b><br></span>
+                    </p>
+                    
+                    <ul style="list-style-type:none;">
+                        <li *ngFor="let leader of project.projectLeaders"> <div id="{{project.id.toString() + leader}}">loading...</div> </li>
+                    </ul>
+                </div>
+
+                <div class="row mt-auto" *ngIf="project.projectMembers.length">
+                    <p>
+                        <span *ngIf="project.projectMembers.length < 2 && project.projectMembers.length > 0"><b>Member:</b><br></span>
+                        <span *ngIf="project.projectMembers.length >= 2"><b>members:</b><br></span>
+                    </p>
+                    
+                    <ul style="list-style-type:none;">
+                        <li *ngFor="let member of project.projectMembers"> <div id="{{project.id.toString() + member}}">loading...</div> </li>
+                    </ul>
+                </div>
+
+                <div class="row mt-auto" *ngIf="loggedIn">
+                    <button class="btn btn-primary " id="edit_{{project.id}}" type="button" aria-haspopup="true" aria-expanded="false" *ngIf="i==0 " (click)="edit(project.id)">
+                        Edit
+                    </button>
+                    
+                    <button class="btn btn-primary" id="editDetails_{{project.id}}" type="button" aria-haspopup="true" aria-expanded="false" *ngIf="i==0 && project.projectLeaders[0]==(id)" (click)="details(project.id)">
+                        Edit details
+                    </button>
+
+                    <button class="btn btn-danger" id="remove_{{project.id}}" type="button" 
+                    aria-haspopup="true" aria-expanded="false" 
+                    data-bs-toggle="modal" data-bs-target="#removeModal" (click)="modifyModal(project.id,project.name)"
+                    *ngIf="i==0">
+                        <div *ngIf="project.projectLeaders[0]==(id)">Remove Project</div>
+                        <div *ngIf="project.projectLeaders[0]!=(id)">Resign</div>
+                    </button>
+                    
+                    <button class="btn btn-primary" id="done_{{project.id}}" type="button" aria-haspopup="true" aria-expanded="false" *ngIf="i==0 " (click)="cancel(project.id)">
+                        Cancel
+                    </button>
+
+                    <button class="btn btn-primary" id="join_{{project.id}}" type="button" aria-haspopup="true" aria-expanded="false" *ngIf="i==1 " (click)="join(project.id)">
+                        Join
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Remove Project</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        Are you sure want to remove the project?
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="removeBtn" class="btn btn-danger" >Remove</button> <!--(click)="removeProject(project.id)"-->
+        </div>
+    </div>
+    </div>
+</div>

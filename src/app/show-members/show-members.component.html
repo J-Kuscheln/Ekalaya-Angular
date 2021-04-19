@@ -1,0 +1,41 @@
+ 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card animated" *ngFor="let e of members; let i = index">
+            <div class="card-body" >
+                <div class="row">
+                    <h3 id="firstName">{{e.firstName}}</h3>
+                    <hr>
+                </div>
+
+                <div class="row">
+                    <p id="position"><b>Position:</b> {{e.position}}</p>
+                </div>
+
+                <div class="row">
+                    <p id="email"><b>Email:</b> {{e.email}}</p>
+                    <hr>
+                </div>
+
+                <div class="row" *ngIf="e.leadedProjects.length">
+                    <p *ngIf="e.leadedProjects.length>=2"><b>Leading Projects:</b></p>
+                    <p *ngIf="e.leadedProjects.length<2"><b>Leading Project:</b></p>
+                    <ul style="list-style-type:none;">
+                        <li *ngFor="let project of e.leadedProjects">{{project}}</li>
+                    </ul>
+                    <hr>
+                </div>
+
+                <div class="row" *ngIf="e.memberProjects.length">
+                    <p *ngIf="e.memberProjects.length>=2"><b>Member of Projects:</b></p>
+                    <p *ngIf="e.memberProjects.length<2"><b>Member of Project:</b></p>
+                    <ul style="list-style-type:none;">
+                        <li *ngFor="let project of e.memberProjects">{{project}}</li>
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

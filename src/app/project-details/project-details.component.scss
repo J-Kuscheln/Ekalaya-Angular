@@ -1,0 +1,94 @@
+#description-box, #task-card{
+    font-size: large; 
+    border: 1px;
+    border-color: #9f9999; 
+    border-radius: 5px; 
+    border-style: solid;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 12px;
+    margin-left: 12px;
+    width: 90%;
+}
+
+#description-title, #your-task-title, #other-task-title{
+    font-size: larger;
+}
+
+#your-task-title, #other-task-title{
+    margin-left: 12px;
+}
+
+#leader-title, #members-title{
+    font-size: larger;
+    padding-left: 0px;
+}
+
+#leader-card, #no-member{
+    font-size: medium;
+}
+
+#card-container{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#member-card, #leader-card{
+    padding-left: 12px;
+    padding-right:12px;
+}
+
+#member-card-name, #partner-name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#info{
+    max-width: 70%;
+}
+
+@media (max-width:1000px){
+    #description-box, #task-description{
+        font-size: 8pt;
+    }
+    #description-title, #your-task-title, #other-task-title{
+        font-size: medium;
+    }
+    #right-side-bar{
+        margin-right: 2%;
+    }
+    #leader-title, #members-title{
+        font-size: medium;
+    }
+    #leader-card, #task-name, #member-card{
+        font-size: small;
+    }
+    #due-date, #due-date-title,  #no-member, #partner-title, #partner-name{
+        font-size: smaller;
+    }
+    #description-box, #task-card{
+        flex: 0 0 auto;
+        width: 90%;
+    }
+    #email{
+        font-size: xx-small;
+    }
+}
+@media (max-width:600px){
+    #description-title, #your-task-title, #other-task-title{
+        font-size: small;
+    }
+    #leader-title, #members-title{
+        font-size: small;
+    }
+    #email, #due-date, #due-date-title,  #no-member, #partner-title, #partner-name{
+        font-size: xx-small;
+    }
+    #right-side-bar{
+        display: none;
+    }
+    #info{
+        width: 100%;
+        max-width: 100%;
+    }
+}

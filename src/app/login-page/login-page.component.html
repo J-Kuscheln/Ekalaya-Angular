@@ -1,0 +1,19 @@
+<div class="container" id="main-container">
+    <form onsubmit="document.getElementById('secondBtn').click(); return false">
+        <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp" #email>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+        <label for="password" class="form-label" >Password</label>
+        <input type="password" class="form-control" id="password-login" #password>
+        </div>
+        <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <input class="btn btn-primary" type="submit" name="submit-login" value="Login"/>
+    </form>
+    <button type="button" id="secondBtn" (click)="hashCode()" style="display: none;">Submit</button>
+</div>

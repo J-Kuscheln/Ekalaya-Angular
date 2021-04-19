@@ -1,0 +1,9 @@
+.btn-secondary#updateBtn{
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.task-title, .task-owner, .task-description, .task-due-date{
+    margin-left: 30px;
+}
+

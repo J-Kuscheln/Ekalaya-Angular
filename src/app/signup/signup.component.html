@@ -1,0 +1,43 @@
+<div class="container" style="margin: 10%;">
+    <form onsubmit="document.getElementById('secondSignUpBtn').click(); return false">
+
+        <div class="mb-3">
+            <label for="firstName" class="form-control-label">First Name*</label>
+            <input type="text" class="form-control" id="firstName*" placeholder="First Name" #firstNameSignUp>
+        </div>
+
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name*</label>
+            <input type="text" class="form-control" id="lastName*" placeholder="Last Name" #lastNameSignUp>
+        </div>
+
+        <div class="mb-3">
+            <label for="birthday" class="form-label">Birthday</label>
+            <input type="date" class="form-control" id="birthday*" #birthdaySignUp>
+        </div>
+
+        <div class="mb-3">
+        <label for="email" class="form-label">Email address*</label>
+        <input type="email" class="form-control" id="email*" placeholder="your@email.com" #emailSignUp>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone (optional)</label>
+            <input type="tel" class="form-control" id="phone" placeholder="01761234567" #phoneSignUp>
+        </div>
+
+        <div class="mb-3">
+        <label for="password1" class="form-label" >Password*</label>
+        <input type="password" class="form-control" id="password1" #passwordSignUp>
+        </div>
+
+        <div class="mb-3">
+            <label for="password2" class="form-label" >Confirm Password*</label>
+            <input type="password" class="form-control" id="password2" #passwordValidator>
+        </div>
+
+        <input class="btn btn-primary" type="submit" name="Register" value="Register"/>
+    </form>
+    <button type="button" id="secondSignUpBtn" style="display: none;" (click)="submitForm()">Submit</button>
+</div>
+
