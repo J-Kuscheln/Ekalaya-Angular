@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --conviguration ${environment}",
+    "heroku-postbuild": "ng build --configuration ${environment}",
     "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
