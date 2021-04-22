@@ -62,7 +62,16 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "test":{
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
             }
+
           }
         },
         "serve": {
@@ -73,6 +82,9 @@
           "configurations": {
             "production": {
               "browserTarget": "organisation-app:build:production"
+            },
+            "test":{
+              "browserTarget": "organisation-app:build:test"
             }
           }
         },
