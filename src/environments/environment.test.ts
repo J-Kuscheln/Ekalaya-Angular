@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiBaseUrl: 'https://ekalaya-api-staging.herokuapp.com',
+    apiBaseUrl: 'https://ekalaya-staging-api.herokuapp.com',
     baseUrl:'https://ekalaya-ev-staging.herokuapp.com'
   };
