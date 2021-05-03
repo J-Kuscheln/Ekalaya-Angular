@@ -65,11 +65,6 @@ export class ProjectDetailsComponent implements OnInit {
     if(this.isLoggedIn) await this.getTaskData(this.project.tasks)
     this.tasksContainer.push(this.myTasks);
     this.tasksContainer.push(this.otherTasks);
-
-    for(let i in this.myPartners){
-      console.log(this.myPartners[i]);
-    }
-
   }
 
   goHome(){
@@ -120,19 +115,19 @@ export class ProjectDetailsComponent implements OnInit {
 
   pushTaskToArray(task:Task){
     let mine = false;
-    let possiblePartnerId:String[] = [];
+    let possiblePartnerIds:String[] = [];
     for(let index in task.members){
       if(task.members[index]==this.memberId){
         this.myTasks.push(task);
         mine = true;
-      }else{
-        possiblePartnerId.push(task.members[index])
+        continue;
       }
+      possiblePartnerIds.push(task.members[index]);
     }
-    
+
     if(mine){
       let partner:Member[] = [];
-      for(let memberId of task.members){
+      for(let memberId of possiblePartnerIds){
         let data = this.getMemberDataOffline(memberId);
         if(data!=null) partner.push(data);
       }
@@ -144,11 +139,13 @@ export class ProjectDetailsComponent implements OnInit {
   }
 
   getMemberDataOffline(id:String){
-    console.log("looking for: ", id);
     for(let member of this.membersOfProject){
-      console.log("match with: ", member.id);
       if(member.id == id) {
-        
+        return member;
+      }
+    }
+    for(let member of this.LeaderOfProject){
+      if(member.id == id) {
         return member;
       }
     }
