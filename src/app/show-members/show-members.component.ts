@@ -24,7 +24,7 @@ export class ShowMembersComponent implements OnInit {
     this.displayAnimation();
   }
   ngOnDestroy(){
-    this.subscrip.unsubscribe();
+    if(this.subscrip!=null) this.subscrip.unsubscribe();
   }
 
   async getDataMember(){
