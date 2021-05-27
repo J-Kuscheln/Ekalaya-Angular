@@ -4,7 +4,9 @@ html {
 }
 body{
     position: relative;
-    background-color: #fff1c8;
+    //background-color: #20ac48;
+    //background-color: #04447eff;
+    background-color: #20ac486b;
     min-height: 100%;
 }
 
@@ -17,7 +19,8 @@ body{
 }
 
 footer{
-    background-color: #c46f03;
+    //background-color: #ffab6b;
+    background-color: #ff7f50;
     color:white;
     position: absolute;
     bottom: 0px;
@@ -27,4 +30,11 @@ footer{
 
 .card{
     background: #fbeab7;
+}
+
+#insta{
+	vertical-align: middle;
+	margin-left : 10%;
+	background : none;
+	height : 30px;
 }
