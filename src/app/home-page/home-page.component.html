@@ -1,90 +1,100 @@
 <div class="stories">
-    <div class="container">
+    <div class="container-fluid p-0">
         <div class="row align-items-center">
-            <div class="col-1 prev">
-                <a (click)="prev()">&#10094;</a>
-            </div>
             <div class="col">
                 <div *ngIf = "counter == 1" class="testimg">
-                    <img class="col" src="assets/slides/2.png" style="width: 100%;">
+                    <img class="col" src="assets/slides/slide1.png" style="width: 100%;">
                 </div>
                 <div *ngIf = "counter == 2" class="testimg">
-                    <img class="col" src="assets/slides/3.png" style="width: 100%;">
+                    <img class="col" src="assets/slides/slide1.png" style="width: 100%;">
                 </div>
                 <div *ngIf = "counter == 3" class="testimg">
-                    <img class="col" src="assets/slides/4.png" style="width: 100%;">
+                    <img class="col" src="assets/slides/slide1.png" style="width: 100%;">
                 </div>
             </div>
-            <div class="col-1 prev">
-                <a  (click)="next()">&#10095;</a>
-            </div>
         </div>
-    </div>
-    <div style="text-align:center">
-        <span class="dot" (click)="currentSlide(1)"></span>
-        <span class="dot" (click)="currentSlide(2)"></span>
-        <span class="dot" (click)="currentSlide(3)"></span>
     </div>
 </div>
 
 <div class="vismis">
-    <div class="container" style="margin: 10% auto; padding: 50px 0px">
-        <div class="row">
-            <div class="col"></div>
-            <div class="col-4 justify-content-center text-center">
-                <h1 class="vmtitle">OUR VISION</h1>>
-                <br><p class="vmtext">Menjadikan intelektual Diaspora Indonesia yang kreatif, produktif dan inovatif</p>
+    <div class="container" style="margin: 5% auto 0px auto; padding: 50px 0px">
+        <div class="row align-items-center">
+            <div class="col justify-content-center text-center">
+                <img src="assets/VnM/vision1.jpg" style="width: 100%" />
             </div>
-            <div class="col-2"></div>
-            <div class="col-4 justify-content-center text-center">
-            <h1 class="vmtitle">OUR MISSION</h1>
-                <br><p class="vmtext">Menjadi jembatan antar Diaspora dalam upaya menghasilkan generasi muda Indonesia yang berprestasi dan mampu bersaing dalam skala Internasional</p>
+            <div class="col-1"> </div>
+            <div class="col-5 justify-content-center text-center">
+                <h1 class="vistitle">OUR VISION</h1>>
+                <br><p class="vistext">Menjadikan intelektual Diaspora Indonesia yang kreatif, produktif dan inovatif</p>
             </div>
-            <div class="col"></div>
         </div>
     </div>
 </div>
 
-<div class = "preview">
-    <div>
-        <h1 class = "subtitle"> Know us more !</h1>
-    </div>
-    <div class ="image">
-        <img id="member" src= "assets/photos/randy.jpg"/>
-        <span id="caption"> Randy Effendy <br> Bachelor Student at Fachhochschule Hannover </span>
-    </div>
-    <div class = "image">
-        <img id="member" src= "assets/photos/timmy.jpg"/>
-        <span id="caption"> Timmy Ricardo <br> Postgraduate Student at Medizinische Hochschule Hannover </span>
-    </div>
-    <div class = "image">
-        <img id="member" src= "assets/photos/virya.jpg"/>
-        <span id="caption"> Virya Leesidro <br> Bachelor Student at Leibniz Uni Hannover </span>
-    </div>
-    <div class = "image">
-        <img id="member" src= "assets/photos/rozaan.jpg"/>
-        <span id="caption"> Rozaan Wiryanto <br> Working by Lohoff Company </span>
+<div class="vismis2">
+    <div class="container" style="margin: 0px auto 0% auto; padding: 50px 0px 7% 0px">
+        <div class="row align-items-center">
+            <div class="col-5 justify-content-center text-center">
+                <h1 class="mistitle">OUR MISSION</h1>
+                <br><p class="mistext">Menjadi jembatan antar Diaspora dalam upaya menghasilkan generasi muda Indonesia yang berprestasi dan mampu bersaing dalam skala Internasional</p>
+            </div>
+            <div class="col-1"> </div>
+            <div class="col justify-content-center text-center">
+                <img src="assets/VnM/mission1.jpg" style="width: 100%" />
+            </div>
+        </div>
     </div>
 </div>
 
-<div class = "preview">
-    <div class = "image">
-        <img id="member" src= "assets/photos/stefanus.jpg"/>
-        <span id="caption"> Stefanus Renaldi Wijaya <br> Bachelor Student at Leibniz Uni Hannover </span>
+<div class="members">
+    <div class = "preview">
+        <div>
+            <h1 class = "subtitle"> Know us more !</h1>
+        </div>
+        <div class ="image">
+            <img id="member" src= "assets/photos/randy.jpg"/>
+            <span id="caption1"> Randy Effendi </span> <br>
+            <span id="caption2"> CEO </span>
+        </div>
+        <div class = "image">
+            <img id="member" src= "assets/photos/timmy.jpg"/>
+            <span id="caption1"> Timmy Ricardo </span> <br> 
+            <span id="caption2"> PR </span>
+        </div>
+        <div class = "image">
+            <img id="member" src= "assets/photos/virya.jpg"/>
+            <span id="caption1"> Virya Leesidro </span> <br> 
+            <span id="caption2"> Technical </span>
+        </div>
+        <div class = "image">
+            <img id="member" src= "assets/photos/rozaan.jpg"/>
+            <span id="caption1"> Rozaan Wiryanto </span> <br> 
+            <span id="caption2"> Technical </span>
+        </div>
     </div>
-    <div class = "image">
-        <img id="member" src= "assets/photos/herry.jpg"/>
-        <span id="caption"> Herry Hartono <br> Working by xxx Company </span>
-    </div>
-    <div class = "image">
-        <img id="member" src= "assets/photos/satria.jpg"/>
-        <span id="caption"> Satria Jaya Mandala <br> Master Student at Leibniz Uni Hannover </span>
-    </div>
-    <div class = "image">
-        <img id="member" src= "assets/photos/marvel.jpeg"/>
-        <span id="caption"> Marvel F. Utomo <br> Occupation </span>
+
+    <div class = "preview">
+        <div class = "image">
+            <img id="member" src= "assets/photos/stefanus.jpg"/>
+            <span id="caption1"> Stefanus Renaldi Wijaya </span> <br> 
+            <span id="caption2"> Technical </span>
+        </div>
+        <div class = "image">
+            <img id="member" src= "assets/photos/herry.jpg"/>
+            <span id="caption1"> Herry Hartono </span> <br> 
+            <span id="caption2"> PR </span>
+        </div>
+        <div class = "image">
+            <img id="member" src= "assets/photos/satria.jpg"/>
+            <span id="caption1"> Satria Jaya Mandala </span> <br> 
+            <span id="caption2"> Technical </span>
+        </div>
+        <div class = "image">
+            <img id="member" src= "assets/photos/marvel.jpeg"/>
+            <span id="caption1"> Marvel F. Utomo </span> <br> 
+            <span id="caption2"> Advisor </span>
+        </div>
     </div>
 </div>
-
 
 <!--style="background-color: #f9ba00;" style="background-color: #fff1c8;"-->

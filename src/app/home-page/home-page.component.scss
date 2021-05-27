@@ -24,7 +24,6 @@
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
-  // border-radius: 0 2% 2% 0;
   user-select: none;
 }
 
@@ -37,28 +36,6 @@
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  //color: #f2f2f2;
-  color: black;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  //color: #f2f2f2;
-  color: black;
-  font-size: 12px;
-  padding: 5% 5%;
-  position: absolute;
-  top: 0;
 }
 
 /* The dots/bullets/indicators */
@@ -100,27 +77,45 @@
   background-color: #093700;
 }
 
-.vismis{
+.vismis{ 
   background-color: #093700;
 }
 
-.vmtitle{
-  color:white;
-  font-size: 60px;
+.vismis2{ 
+  background-color: #4aa545;
 }
 
-.vmtext{
+.vistitle{
   color:white;
-  font-size:25px;
+  font-size: 60px;
+  text-align: right;
+}
+
+.mistitle{
+  color:white;
+  font-size: 60px;
   text-align: left;
 }
 
+.vistext{
+  color:white;
+  font-size:25px;
+  text-align:right;
+}
+
+.mistext{
+  color:white;
+  font-size:25px;
+  text-align:left;
+}
+
+/*
 .vmtext::first-letter{
   font-size: 250%;
   float: left;
   line-height: 1.15;
   margin: 0px 10px 0px 0px;
-}
+}*/
 
 
 #box{
@@ -130,6 +125,11 @@
 .subtitle{
     text-align: center;
     font-size: 60px;
+    margin-top: 10%;
+}
+
+.members{
+  background-color: #ffffff;
 }
 
 .preview{
@@ -156,6 +156,17 @@
 #caption{
 	margin-top: 10px;
   display: inline-block;
+  font-size: 25px;
+}
+
+#caption1{
+	margin-top: 10px;
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#caption2{
   font-size: 25px;
 }
 
